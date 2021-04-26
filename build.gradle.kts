@@ -10,30 +10,12 @@ kotlin {
     js(IR) {
         browser()
     }
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-                useIR = true
-            }
-        }
-    }
+    jvm()
 
     sourceSets {
         commonTest {
             dependencies {
-                api(kotlin("test-common"))
-                api(kotlin("test-annotations-common"))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
+                api(kotlin("test"))
             }
         }
     }
