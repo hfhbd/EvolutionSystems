@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.4.32"
+    kotlin("multiplatform") version "1.5.0"
 }
 
 repositories {
@@ -10,30 +10,12 @@ kotlin {
     js(IR) {
         browser()
     }
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-                useIR = true
-            }
-        }
-    }
+    jvm()
 
     sourceSets {
         commonTest {
             dependencies {
-                api(kotlin("test-common"))
-                api(kotlin("test-annotations-common"))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
+                api(kotlin("test"))
             }
         }
     }
