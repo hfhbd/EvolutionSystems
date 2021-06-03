@@ -14,11 +14,11 @@ class StatsTest {
         assertEquals(66.0, stats.lowerQuantile)
         assertEquals(75.0, stats.upperQuantile)
 
-        assertEquals(81.0, stats.upperWhisker)
-        assertEquals(57.0, stats.lowerWhisker)
+        assertEquals(81.0, stats.whisker.value.upperWhisker)
+        assertEquals(57.0, stats.whisker.value.lowerWhisker)
 
-        assertTrue(stats.lowerExtrema.isEmpty())
-        assertTrue(stats.upperExtrema.isEmpty())
+        assertTrue(stats.whisker.value.lowerExtrema.isEmpty())
+        assertTrue(stats.whisker.value.upperExtrema.isEmpty())
     }
 
     @Test
@@ -34,10 +34,10 @@ class StatsTest {
         assertEquals(66.0, stats.lowerQuantile)
         assertEquals(75.0, stats.upperQuantile)
 
-        assertEquals(79.0, stats.upperWhisker)
-        assertEquals(57.0, stats.lowerWhisker)
+        assertEquals(79.0, stats.whisker.value.upperWhisker)
+        assertEquals(57.0, stats.whisker.value.lowerWhisker)
 
-        assertEquals(listOf(52.0), stats.lowerExtrema)
-        assertEquals(listOf(89.0), stats.upperExtrema)
+        assertEquals(listOf(52.0), stats.whisker.value.lowerExtrema)
+        assertEquals(listOf(89.0), stats.whisker.value.upperExtrema)
     }
 }
