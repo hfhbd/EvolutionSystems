@@ -7,15 +7,12 @@ repositories {
 }
 
 kotlin {
-    js(IR) {
-        browser()
-    }
     jvm()
 
     sourceSets {
         commonTest {
             dependencies {
-                api(kotlin("test"))
+                implementation(kotlin("test"))
             }
         }
     }

@@ -1,30 +1,22 @@
-
 import kotlin.math.*
 
 data class Stats(
-    val count: Int,
-    val min: Double,
-    val max: Double,
-    val median: Double,
-    val average: Double,
+    override val count: Int,
+    override val min: Double,
+    override val max: Double,
+    override val median: Double,
+    override val average: Double,
 
-    val std: Double,
-    val variance: Double,
+    override val std: Double,
+    override val variance: Double,
 
-    val lowerQuantile: Double,
-    val upperQuantile: Double,
+    override val lowerQuantile: Double,
+    override val upperQuantile: Double,
 
-    val whisker: Lazy<Whisker>
-) {
+    override val whisker: Lazy<Statistics.Whisker>
+): Statistics {
 
-    data class Whisker(
-        val iqr: Double,
-        val whiskerLength: Double,
-        val lowerWhisker: Double,
-        val upperWhisker: Double,
-        val lowerExtrema: List<Double>,
-        val upperExtrema: List<Double>
-    )
+
 
     companion object {
         operator fun <T> invoke(
@@ -69,7 +61,7 @@ data class Stats(
                 val upperExtrema: List<Double> =
                     sortedValues.takeLastWhile { it > upperWhisker }
 
-                Whisker(
+                Statistics.Whisker(
                     iqr = iqr,
                     whiskerLength = whiskerLength,
                     lowerWhisker = lowerWhisker,

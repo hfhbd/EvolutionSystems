@@ -1,3 +1,1 @@
-data class Population(val solutions: List<Solution>) : Stats by Stats(solutions, selector = { it.fitness }) {
-    override fun toString(): String = "MinFitness: $min, averageFitness: $average, maxFitness: $max"
-}
+data class Population(val solutions: List<Solution>) : Statistics by Stats(solutions, selector = { it.fitness })
