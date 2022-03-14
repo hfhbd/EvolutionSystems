@@ -1,3 +1,11 @@
+package es
+
+import Crossover
+import ES
+import Fitness
+import Gaussian
+import Selection
+
 class OnePlusOne(override val N: Int, override val sigma: Double) : ES {
     override val mu: Int = 1
     override val lambda: Int = 1
